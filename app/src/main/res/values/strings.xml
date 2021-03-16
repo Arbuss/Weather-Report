@@ -10,4 +10,12 @@
     <string name="login_screen_sign_in_button">Sign In</string>
     <string name="login_screen_empty_login">Empty Login</string>
     <string name="login_screen_empty_password">Empty Password</string>
+
+    Register Screen
+    <string name="register_screen_login_title">Login</string>
+    <string name="register_screen_password_title">Password</string>
+    <string name="register_screen_password_confirmation_title">Password Confirmation</string>
+    <string name="register_screen_register_button">Register</string>
+    <string name="register_screen_empty_password">Empty Password</string>
+    <string name="register_screen_password_mismatching">Password Mismatching</string>
 </resources>

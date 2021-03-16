@@ -14,7 +14,7 @@ class LoginPresenter: MvpPresenter<LoginView>() {
     @Inject lateinit var usersDataStore: UsersDataStore
 
     fun signIn(login: String, password: String) {
-        if(!loginPasswordIsValid(login, password)) return
+        if(!loginPasswordValid(login, password)) return
         if(usersDataStore.login(login, password)) {
             onSignInSuccess()
         } else {
@@ -23,24 +23,26 @@ class LoginPresenter: MvpPresenter<LoginView>() {
     }
 
     private fun onSignInSuccess() {
+        router.replaceScreen(Screens.main())
     }
 
     private fun onSignInError() {
+        router.replaceScreen(Screens.register())
     }
 
-    private fun loginPasswordIsValid(login: String, password: String): Boolean {
-        if(!loginIsValid(login)) {
+    private fun loginPasswordValid(login: String, password: String): Boolean {
+        if(!loginValid(login)) {
             viewState.highlightLoginField()
             return false
         }
-        if(!passwordIsValid(password)) {
+        if(!passwordValid(password)) {
             viewState.highlightPasswordField()
             return false
         }
         return true
     }
 
-    private fun loginIsValid(login: String) = login.isNotEmpty()
+    private fun loginValid(login: String) = login.isNotEmpty()
 
-    private fun passwordIsValid(password: String) = password.isNotEmpty()
+    private fun passwordValid(password: String) = password.isNotEmpty()
 }
