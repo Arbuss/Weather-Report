@@ -3,4 +3,11 @@
 
     <string name="weather_units">imperial</string>
     <string name="weather_lang">en</string>
+    
+    Login Screen
+    <string name="login_screen_login_title">Login</string>
+    <string name="login_screen_password_title">Password</string>
+    <string name="login_screen_sign_in_button">Sign In</string>
+    <string name="login_screen_empty_login">Empty Login</string>
+    <string name="login_screen_empty_password">Empty Password</string>
 </resources>
