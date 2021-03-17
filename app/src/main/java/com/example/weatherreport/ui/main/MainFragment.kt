@@ -21,7 +21,7 @@ class MainFragment: Fragment(R.layout.fragment_main) {
     )
 
     override fun onAttach(context: Context) {
-        (context as App).appComponent.inject(this)
+        (activity?.applicationContext as App).appComponent.inject(this)
         super.onAttach(context)
     }
 

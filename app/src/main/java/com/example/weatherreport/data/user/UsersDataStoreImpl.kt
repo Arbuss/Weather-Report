@@ -4,9 +4,7 @@ import android.content.SharedPreferences
 import androidx.core.content.edit
 import javax.inject.Inject
 
-class UsersDataStoreImpl: UsersDataStore {
-    @Inject
-    lateinit var sharedPreferences: SharedPreferences
+class UsersDataStoreImpl @Inject constructor(private val sharedPreferences: SharedPreferences): UsersDataStore {
 
     override var currentUser: String? = null
         private set
