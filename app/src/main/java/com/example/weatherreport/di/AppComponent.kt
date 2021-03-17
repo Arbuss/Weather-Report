@@ -5,6 +5,8 @@ import com.example.weatherreport.MainActivity
 import com.example.weatherreport.di.modules.DataStoreModule
 import com.example.weatherreport.di.modules.NavigationModule
 import com.example.weatherreport.di.modules.NetworkingModule
+import com.example.weatherreport.ui.cache.CacheFragment
+import com.example.weatherreport.ui.cache.CachePresenter
 import com.example.weatherreport.ui.login.LoginFragment
 import com.example.weatherreport.ui.login.LoginPresenter
 import com.example.weatherreport.ui.main.MainFragment
@@ -31,8 +33,10 @@ interface AppComponent {
     fun inject(fragment: RegisterFragment)
     fun inject(fragment: MainFragment)
     fun inject(fragment: SearchFragment)
+    fun inject(fragment: CacheFragment)
 
     fun inject(presenter: LoginPresenter)
     fun inject(presenter: RegisterPresenter)
     fun inject(presenter: SearchPresenter)
+    fun inject(presenter: CachePresenter)
 }

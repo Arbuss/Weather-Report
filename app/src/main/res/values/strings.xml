@@ -23,7 +23,7 @@
     Main Screen
     <string-array name="tabs">
         <item>Search</item>
-        <item>List</item>
+        <item>Cache</item>
         <item>Map</item>
     </string-array>
 

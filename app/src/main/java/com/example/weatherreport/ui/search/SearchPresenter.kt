@@ -22,10 +22,12 @@ class SearchPresenter: MvpPresenter<SearchView>() {
     fun search(city: String, units: String, lang: String) {
         presenterScope.launch(Dispatchers.Default) {
             val weather = remoteDataStore.get(city, units, lang)
+            weather?.let {
+                localDataStore.add(weather)
+            }
             withContext(Dispatchers.Main) {
                 weather?.let {
                     viewState.onSuccess(it)
-                    localDataStore.add(it)
                 } ?: viewState.onError()
             }
         }

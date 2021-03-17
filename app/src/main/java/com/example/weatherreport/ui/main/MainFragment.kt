@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.weatherreport.App
 import com.example.weatherreport.R
-import com.example.weatherreport.ui.list.ListFragment
+import com.example.weatherreport.ui.cache.CacheFragment
 import com.example.weatherreport.ui.map.MapFragment
 import com.example.weatherreport.ui.search.SearchFragment
 import com.google.android.material.tabs.TabLayoutMediator
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
 class MainFragment: Fragment(R.layout.fragment_main) {
     private val fragments = arrayOf(
         SearchFragment(),
-        ListFragment(),
+        CacheFragment(),
         MapFragment()
     )
 
