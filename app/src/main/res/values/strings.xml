@@ -18,4 +18,11 @@
     <string name="register_screen_register_button">Register</string>
     <string name="register_screen_empty_password">Empty Password</string>
     <string name="register_screen_password_mismatching">Password Mismatching</string>
+
+    Main Screen
+    <string-array name="tabs">
+        <item>Search</item>
+        <item>List</item>
+        <item>Map</item>
+    </string-array>
 </resources>

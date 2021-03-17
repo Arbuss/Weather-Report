@@ -23,6 +23,7 @@ class RegisterPresenter : MvpPresenter<RegisterView>() {
     }
 
     private fun onRegisterSuccess() {
+        router.replaceScreen(Screens.main())
     }
 
     private fun passwordsValid(password: String, passwordConfirmation: String): Boolean {
