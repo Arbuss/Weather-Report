@@ -7,6 +7,6 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 object Screens {
     fun login() = FragmentScreen { LoginFragment() }
-    fun register() = FragmentScreen { RegisterFragment() }
+    fun register(login: String, password: String) = FragmentScreen { RegisterFragment(login, password) }
     fun main() = FragmentScreen { MainFragment() }
 }

@@ -8,10 +8,11 @@ import moxy.MvpPresenter
 import javax.inject.Inject
 
 @InjectViewState
-class RegisterPresenter : MvpPresenter<RegisterView>() {
+class RegisterPresenter @Inject constructor(): MvpPresenter<RegisterView>() {
 
     @Inject
     lateinit var router: Router
+
     @Inject
     lateinit var usersDataStore: UsersDataStore
 
@@ -31,7 +32,7 @@ class RegisterPresenter : MvpPresenter<RegisterView>() {
             viewState.highlightPasswordConfirmationField()
             return false
         }
-        if(!passwordMatching(password, passwordConfirmation)) {
+        if (!passwordMatching(password, passwordConfirmation)) {
             viewState.highlightPasswordsFields()
             return false
         }
