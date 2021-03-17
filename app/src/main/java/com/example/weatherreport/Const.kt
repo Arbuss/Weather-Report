@@ -2,7 +2,7 @@ package com.example.weatherreport
 
 class Const {
     object Networking {
-        const val BASE_URL = "http://api.openweathermap.org/data/2.5/"
+        const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
         const val API_KEY = "df85215e62d171af1f772fa7ed47d281"
     }
 

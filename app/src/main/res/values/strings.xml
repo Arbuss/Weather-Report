@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Weather Report</string>
 
+    Api Params
     <string name="weather_units">imperial</string>
     <string name="weather_lang">en</string>
     
@@ -25,4 +26,7 @@
         <item>List</item>
         <item>Map</item>
     </string-array>
+
+    Search Screen
+    <string name="search_screen_search_button">Search</string>
 </resources>
