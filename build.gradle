@@ -3,6 +3,7 @@ buildscript {
     ext.kotlin_version = "1.4.31"
     ext.dagger_version = "2.32"
     ext.moxy_version = "2.2.1"
+    ext.room_version = "2.2.6"
 
     repositories {
         google()

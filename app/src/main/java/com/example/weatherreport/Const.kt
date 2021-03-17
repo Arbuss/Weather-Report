@@ -15,4 +15,8 @@ class Const {
         const val WEATHER_KEY = "weather key"
         const val DATE_FORMAT = "dd.MM.yyyy HH:mm EE"
     }
+
+    object Database {
+        const val DATABASE_NAME = "weather.db"
+    }
 }
