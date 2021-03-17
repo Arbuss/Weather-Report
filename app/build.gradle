@@ -52,9 +52,12 @@ dependencies {
 
     // Dagger
     implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
 
     // Moxy
+    implementation "com.github.moxy-community:moxy-androidx:$moxy_version"
     implementation "com.github.moxy-community:moxy:$moxy_version"
     implementation "com.github.moxy-community:moxy-ktx:$moxy_version"
     kapt "com.github.moxy-community:moxy-compiler:$moxy_version"

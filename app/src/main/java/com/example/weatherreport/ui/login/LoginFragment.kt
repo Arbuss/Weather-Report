@@ -3,23 +3,22 @@ package com.example.weatherreport.ui.login
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import com.example.weatherreport.App
 import com.example.weatherreport.R
-import com.github.terrakok.cicerone.Router
 import kotlinx.android.synthetic.main.fragment_login.*
+import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
-import javax.inject.Inject
 
-class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
+class LoginFragment : MvpAppCompatFragment(R.layout.fragment_login), LoginView {
 
-    @Inject
     @InjectPresenter
     lateinit var presenter: LoginPresenter
 
-    @Inject
-    lateinit var router: Router
+    @ProvidePresenter
+    fun provide() = LoginPresenter().also {
+        (activity?.applicationContext as App).appComponent.inject(it)
+    }
 
     override fun onAttach(context: Context) {
         (activity?.applicationContext as App).appComponent.inject(this)

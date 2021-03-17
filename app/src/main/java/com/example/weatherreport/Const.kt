@@ -10,4 +10,9 @@ class Const {
         const val LOGIN_KEY = "login key"
         const val PASSWORD_KEY = "password key"
     }
+
+    object WeatherDialog {
+        const val WEATHER_KEY = "weather key"
+        const val DATE_FORMAT = "dd.MM.yyyy HH:mm EE"
+    }
 }

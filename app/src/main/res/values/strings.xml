@@ -29,4 +29,10 @@
 
     Search Screen
     <string name="search_screen_search_button">Search</string>
+
+    Weather Dialog
+    <string name="weather_dialog_temperature_unit">Fahrenheit</string>
+    <string name="weather_dialog_clouds_unit">%</string>
+    <string name="weather_dialog_clouds_title">Cloudiness</string>
+    <string name="weather_dialog_humidity_title">Humidity</string>
 </resources>

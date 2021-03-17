@@ -8,7 +8,7 @@ import moxy.MvpPresenter
 import javax.inject.Inject
 
 @InjectViewState
-class LoginPresenter @Inject constructor(): MvpPresenter<LoginView>() {
+class LoginPresenter : MvpPresenter<LoginView>() {
 
     @Inject
     lateinit var router: Router
