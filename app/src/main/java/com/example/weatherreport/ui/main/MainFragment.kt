@@ -12,9 +12,10 @@ import com.example.weatherreport.ui.map.MapFragment
 import com.example.weatherreport.ui.search.SearchFragment
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_main.*
+import moxy.MvpAppCompatFragment
 
 class MainFragment: Fragment(R.layout.fragment_main) {
-    private val fragments = arrayOf(
+    private val fragments = arrayOf<Fragment>(
         SearchFragment(),
         CacheFragment(),
         MapFragment()
@@ -32,6 +33,7 @@ class MainFragment: Fragment(R.layout.fragment_main) {
     }
 
     private fun initViewPager() {
+        viewPager.isUserInputEnabled = false
         val adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount() = fragments.size
 

@@ -32,7 +32,7 @@ class CacheFragment : MvpAppCompatFragment(R.layout.fragment_list), CacheView {
     }
 
     override fun initAdapter(items: List<Weather>) {
-        recyclerView.adapter = WeatherAdapter(
+        recyclerView?.adapter = WeatherAdapter(
             items.toMutableList()
         ) {
             WeatherDialog(it).show(childFragmentManager, "")
@@ -40,7 +40,7 @@ class CacheFragment : MvpAppCompatFragment(R.layout.fragment_list), CacheView {
     }
 
     override fun fillAdapter(items: List<Weather>) {
-        (recyclerView.adapter as WeatherAdapter).updateItems(items)
+        (recyclerView?.adapter as? WeatherAdapter)?.updateItems(items)
     }
 
     override fun onResume() {

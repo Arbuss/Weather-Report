@@ -4,6 +4,7 @@
     Api Params
     <string name="weather_units">imperial</string>
     <string name="weather_lang">en</string>
+    <string name="map_api_key" translatable="false">AIzaSyCgCoHTV2sMC1qRY3xO8Fs0rrUC8Zshgic</string>
     
     Login Screen
     <string name="login_screen_login_title">Login</string>
