@@ -30,6 +30,7 @@
 
     Search Screen
     <string name="search_screen_search_button">Search</string>
+    <string name="search_screen_connection_error">Error. Check internet connection</string>
 
     Weather Dialog
     <string name="weather_dialog_temperature_unit">Fahrenheit</string>

@@ -29,6 +29,7 @@
 
     Search Screen
     <string name="search_screen_search_button">Chercher</string>
+    <string name="search_screen_connection_error">Erreur. Vérifiez votre connection internet </string>
 
     Weather Dialog
     <string name="weather_dialog_temperature_unit">Fahrenheit</string>

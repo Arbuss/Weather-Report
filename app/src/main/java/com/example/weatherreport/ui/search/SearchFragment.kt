@@ -3,6 +3,7 @@ package com.example.weatherreport.ui.search
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import com.example.weatherreport.App
 import com.example.weatherreport.R
 import com.example.weatherreport.data.weather.Weather
@@ -37,7 +38,7 @@ class SearchFragment : MvpAppCompatFragment(R.layout.fragment_search), SearchVie
     }
 
     override fun onError() {
-
+        AlertDialog.Builder(requireContext()).setMessage(R.string.search_screen_connection_error).show()
     }
 
     private fun bindSearchButton() {

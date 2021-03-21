@@ -29,6 +29,7 @@
 
     Search Screen
     <string name="search_screen_search_button">Поиск</string>
+    <string name="search_screen_connection_error">Ошибка. Проверьте интернет соединение</string>
 
     Weather Dialog
     <string name="weather_dialog_temperature_unit">Цельсия</string>
