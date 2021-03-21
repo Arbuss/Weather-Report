@@ -10,6 +10,7 @@ import com.example.weatherreport.ui.cache.CachePresenter
 import com.example.weatherreport.ui.login.LoginFragment
 import com.example.weatherreport.ui.login.LoginPresenter
 import com.example.weatherreport.ui.main.MainFragment
+import com.example.weatherreport.ui.map.MapPresenter
 import com.example.weatherreport.ui.register.RegisterFragment
 import com.example.weatherreport.ui.register.RegisterPresenter
 import com.example.weatherreport.ui.search.SearchFragment
@@ -39,4 +40,5 @@ interface AppComponent {
     fun inject(presenter: RegisterPresenter)
     fun inject(presenter: SearchPresenter)
     fun inject(presenter: CachePresenter)
+    fun inject(presenter: MapPresenter)
 }

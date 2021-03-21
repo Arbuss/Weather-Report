@@ -1,22 +1,43 @@
 package com.example.weatherreport.ui.map
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.example.weatherreport.App
 import com.example.weatherreport.R
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapsInitializer
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import kotlinx.android.synthetic.main.fragment_map.*
 import moxy.MvpAppCompatFragment
+import moxy.presenter.InjectPresenter
+import moxy.presenter.ProvidePresenter
+
 
 class MapFragment : MvpAppCompatFragment(R.layout.fragment_map), MapView {
+
+    @InjectPresenter
+    lateinit var presenter: MapPresenter
+
+    private val requestMapPermissionsLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                presenter.setMapLocation()
+            }
+        }
+
+    @ProvidePresenter
+    fun provide() = MapPresenter().also {
+        (activity?.applicationContext as App).appComponent.inject(it)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,76 +45,51 @@ class MapFragment : MvpAppCompatFragment(R.layout.fragment_map), MapView {
             onCreate(null)
             getMapAsync {
                 MapsInitializer.initialize(activity?.applicationContext)
-                setMapLocation(it)
+                presenter.map = it
+                presenter.setMapLocation()
             }
         }
     }
 
-    private fun setMapLocation(map: GoogleMap) {
-        with(map) {
-            mapType = GoogleMap.MAP_TYPE_NORMAL
-            if (checkPermissions()) {
-                setCurrentLocation(this)
-            } else {
-                requestMapPermissions()
-            }
-
-            setOnMyLocationButtonClickListener {
-                setCurrentLocation(this)
-                true
-            }
-
-            setOnMapClickListener {
-                Toast.makeText(context, "Clicked on map", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-    private fun setCurrentLocation(map: GoogleMap) {
-        map.uiSettings?.isMyLocationButtonEnabled = true
-        map.isMyLocationEnabled = true
-
+    override fun setCurrentLocation() {
         LocationServices.getFusedLocationProviderClient(requireContext()).lastLocation.addOnCompleteListener {
-            val position = LatLng(it.result.latitude, it.result.longitude)
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 13f))
-            map.addMarker(MarkerOptions().position(position))
-        }
-    }
-
-    private fun requestMapPermissions() {
-        if (!checkPermissions()) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                ),
-                1488
+            presenter.setCurrentLocation(
+                it.result,
+                bitmapDescriptorFromVector(requireContext(), R.drawable.ic_coronavirus)
             )
         }
     }
 
-    private fun checkPermissions() = ActivityCompat.checkSelfPermission(
-        requireContext(),
-        Manifest.permission.ACCESS_FINE_LOCATION
-    ) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-        requireContext(),
-        Manifest.permission.ACCESS_COARSE_LOCATION
-    ) == PackageManager.PERMISSION_GRANTED
+    override fun requestMapPermissions() {
+        checkPermissions(null,
+            { requestMapPermissionsLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION) }
+        )
+    }
+
+    override fun checkPermissions(onSuccess: (() -> Unit)?, onError: (() -> Unit)?) {
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            onSuccess?.invoke()
+        } else {
+            onError?.invoke()
+        }
+    }
 
     override fun onResume() {
         mapView?.onResume()
         super.onResume()
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        if (requestCode == 1488) {
-            mapView?.onResume()
+    private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+        return ContextCompat.getDrawable(context, vectorResId)?.run {
+            setBounds(0, 0, intrinsicWidth, intrinsicHeight)
+            val bitmap =
+                Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
+            draw(Canvas(bitmap))
+            BitmapDescriptorFactory.fromBitmap(bitmap)
         }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 }
