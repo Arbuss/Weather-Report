@@ -4,4 +4,35 @@
 
     <string name="weather_units">imperial</string>
     <string name="weather_lang">fr</string>
+
+    Login Screen
+    <string name="login_screen_login_title">Login</string>
+    <string name="login_screen_password_title">Password</string>
+    <string name="login_screen_sign_in_button">Entrer</string>
+    <string name="login_screen_empty_login">Nom vide</string>
+    <string name="login_screen_empty_password">Mot de passe vide</string>
+
+    Register Screen
+    <string name="register_screen_login_title">Nom</string>
+    <string name="register_screen_password_title">Mot de passe</string>
+    <string name="register_screen_password_confirmation_title">Confirmation mot de passe</string>
+    <string name="register_screen_register_button">Enregistrement </string>
+    <string name="register_screen_empty_password">Mot de passe vide</string>
+    <string name="register_screen_password_mismatching">Non concordance des mots de passe</string>
+
+    Main Screen
+    <string-array name="tabs">
+        <item>Chercher</item>
+        <item>Histoire</item>
+        <item>Carte </item>
+    </string-array>
+
+    Search Screen
+    <string name="search_screen_search_button">Chercher</string>
+
+    Weather Dialog
+    <string name="weather_dialog_temperature_unit">Fahrenheit</string>
+    <string name="weather_dialog_clouds_unit">%</string>
+    <string name="weather_dialog_clouds_title">Nébulosité</string>
+    <string name="weather_dialog_humidity_title">Humidité</string>
 </resources>

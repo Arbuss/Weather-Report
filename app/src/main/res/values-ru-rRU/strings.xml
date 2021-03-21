@@ -4,4 +4,35 @@
 
     <string name="weather_lang">ru</string>
     <string name="weather_units">metric</string>
+
+    Login Screen
+    <string name="login_screen_login_title">Логин</string>
+    <string name="login_screen_password_title">Пароль</string>
+    <string name="login_screen_sign_in_button">Вход</string>
+    <string name="login_screen_empty_login">Пустой логин</string>
+    <string name="login_screen_empty_password">Пустой пароль</string>
+
+    Register Screen
+    <string name="register_screen_login_title">Логин</string>
+    <string name="register_screen_password_title">Пароль</string>
+    <string name="register_screen_password_confirmation_title">Подтверждение пароля</string>
+    <string name="register_screen_register_button">Регистрация</string>
+    <string name="register_screen_empty_password">Пустой пароль</string>
+    <string name="register_screen_password_mismatching">Пароли не совпадают</string>
+
+    Main Screen
+    <string-array name="tabs">
+        <item>Поиск</item>
+        <item>История</item>
+        <item>Карта</item>
+    </string-array>
+
+    Search Screen
+    <string name="search_screen_search_button">Поиск</string>
+
+    Weather Dialog
+    <string name="weather_dialog_temperature_unit">Цельсия</string>
+    <string name="weather_dialog_clouds_unit">%</string>
+    <string name="weather_dialog_clouds_title">Облачность</string>
+    <string name="weather_dialog_humidity_title">Влажность</string>
 </resources>
